@@ -81,11 +81,8 @@ app.get('/dep', (req, res) => {
                     status: "success",
                     response: rows
                 });
-
             })
         })
-
-
     } catch (err) {
         res.send({
             status: "failed",
@@ -117,3 +114,27 @@ app.listen(3000, () => { console.log(`server listening at 3000`) });
 
         })
  */
+
+ /**
+  * 
+  * 
+  * 
+select e.id,e.title,e.full_name as emp_name,d.full_name as department_name  from employee e
+                 left join department d on e.department_id = d.id ;
+                 
+                 
+select full_name as department_name ,COUNT(*) From department Group By full_name;
+
+
+-- 
+select d.id ,d.full_name ,Count(*) from employee e left join department d on e.department_id=d.id group by d.full_name;
+
+
+
+select d.id as department_id ,d.full_name as department_name ,
+                Count(*) as number_of_employee from employee e left join department d
+                 on e.department_id=d.id where d.id=2 group by d.full_name 
+
+
+
+  */
